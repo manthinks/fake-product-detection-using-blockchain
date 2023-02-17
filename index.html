@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="css files/forms.css">
+<script src="node_modules/web3.js-browser/build/web3.js"></script>
+</head>
+
+<body>
+	<h1>Add Product</h1>
+    <form id="add-product-form">
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" name="productName" required>
+      <br>
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="number" id="expiryDate" name="expiryDate" required>
+      <br>
+      <button type="submit">Add Product</button>
+    </form>
+	<script src="https://cdn.ethers.io/lib/ethers-5.4.umd.min.js" integrity="sha384-5hUtzEM6UJDRW8jvQoMBo6hbfDFQi+rC5W8FWwzjxyq3Dn2QoC5r5Y5j5dUGbJjd" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="contractconnect.js"></script> 
+    
+</body>
+<script>
+	/*
+let h1id=document.getElementById("h1id");
+let web3=new Web3(new Web3.providers.HttpProvider("HTTP://127.0.0.1:7545"));
+web3.eth.getAccounts().then(console.log)
+const contractAddress = '0x123456789abcdef';
+let contract=new web3.eth.Contract([
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_productName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_expiryDate",
+				"type": "uint256"
+			}
+		],
+		"name": "addProduct",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_expiryDate",
+				"type": "uint256"
+			}
+		],
+		"name": "updateProduct",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productId",
+				"type": "uint256"
+			}
+		],
+		"name": "getProductDetails",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "manufacturer",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "productCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "products",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "productName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "manufacturerName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "manufacturingDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "expiryDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "manufacturerAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "isAdded",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+],"0x0E5DA74a39D6E5Fd57AD5587324a080411e28215");
+
+
+
+
+const form = document.getElementById("add-product-form");
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        
+        const productName = document.getElementById("productName").value;
+        const expiryDate = parseInt(document.getElementById("expiryDate").value);
+        
+		try {
+          const tx = await contract.methods.addProduct(productName, expiryDate).send({from: "0x76FED1eD601c6C3C1E9074683C9b4587B6FB570F",gas: 500000});
+          console.log("Transaction hash:", tx.hash);
+          const receipt = await tx.wait();
+          console.log("Transaction receipt:", receipt);
+          console.log("Product added successfully!");
+        } catch (error) {
+          console.error(error);
+        }
+      });
+*/
+/*
+contractt.methods.addProduct("othe pro browser", 14).send({from: "0x76FED1eD601c6C3C1E9074683C9b4587B6FB570F",gas: 500000})
+.on('transactionHash', function(hash){
+    console.log("Transaction hash: " + hash);
+})
+.on('receipt', function(receipt){
+    console.log("Transaction receipt: " + receipt);
+})
+.on('confirmation', function(confirmationNumber, receipt){
+    console.log("Confirmation number: " + confirmationNumber);
+})
+.on('error', console.error);
+*/
+</script>
+</html>

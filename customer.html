@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css files/forms.css">
+    <meta charset="utf-8">
+    <title>Get Product Details Form</title>
+    <script src="node_modules/web3.js-browser/build/web3.js"></script>
+  </head>
+  <body>
+    <h1>Scan Product</h1>
+    <form id="getProductDetailsForm">
+      <label for="productId">Product ID:</label>
+      <input type="number" id="productId" name="productId">
+      <input type="submit" value="Get Product Details">
+    </form>
+    <div id="productDetails"></div>
+    <script type="text/javascript" src="contractconnect.js"></script> 
+    
+   
+    <script>
+        
+      const getProductDetailsForm = document.getElementById('getProductDetailsForm');
+      const productIdInput = document.getElementById('productId');
+      const productDetailsOutput = document.getElementById('productDetails');
+
+
+      getProductDetailsForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const productId = productIdInput.value;
+
+        contract.methods.getProductDetails(productId).call()
+          .then(function(productDetails) {
+            let productName = productDetails[0];
+let manufacturerName = productDetails[1];
+let manufacturingDate = productDetails[2];
+let expiryDate = productDetails[3];
+let manufacturerAddress = productDetails[4];
+            //const [productName, manufacturerName, manufacturingDate, expiryDate, manufacturerAddress] = productDetails;
+            const manufacturingDateObject = new Date(manufacturingDate * 1000);
+            const expiryDateObject = new Date(expiryDate * 1000);
+
+            productDetailsOutput.innerHTML = `
+              <p>Product Name: ${productName}</p>
+              <p>Manufacturer Name: ${manufacturerName}</p>
+              <p>Manufacturing Date: ${manufacturingDateObject.toLocaleString()}</p>
+              <p>Expiry Date: ${expiryDateObject.toLocaleString()}</p>
+              <p>Manufacturer Address: ${manufacturerAddress}</p>
+            `;
+          })
+          .catch(function(error) {
+            console.error(error);
+            productDetailsOutput.innerHTML = 'Error getting product details.';
+          });
+      });
+    </script>
+    
+  </body>
+</html>
